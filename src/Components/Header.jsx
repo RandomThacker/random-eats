@@ -6,13 +6,10 @@ import {
   IconButton,
   List,
 } from "@material-tailwind/react";
-import {
-  Bars3Icon,
-  XMarkIcon,
-} from "@heroicons/react/24/outline";
+import {NavLink} from "react-router-dom";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { LOGO_URL } from "../Utils/constants";
 // import { Logo } from "../../public/logo.svg";
-
 
 function NavList() {
   return (
@@ -23,25 +20,26 @@ function NavList() {
           placeholder="Search"
           className=" border-t-transparent !border-transparent bg-transparent font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder:text-blue-gray-300 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-transparent focus:border-2  focus:!border-transparent focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-transparent"
         />
-        
+
         <button
-        class="select-none rounded-[50%] bg-gray-900 py-2 px-2 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-gray-900/10 transition-all hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-        type="button">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={1.5}
-          stroke="currentColor"
-          className="w-6 h-6"
+          class="select-none rounded-[50%] bg-gray-900 py-2 px-2 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-gray-900/10 transition-all hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+          type="button"
         >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
-          />
-        </svg>
-      </button>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-6 h-6"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+            />
+          </svg>
+        </button>
       </div>
     </List>
   );
@@ -60,16 +58,33 @@ export function Header() {
   return (
     <Navbar className="mx-auto my-5 max-w-screen-xl px-4 py-2 ">
       <div className="flex items-center justify-between text-blue-gray-900">
-        <img src={LOGO_URL}  className="w-[10%]"/>
+      <NavLink to="/">
+        <img src={LOGO_URL} className="h-[5em]" />
+        </NavLink>
         <div className="hidden lg:block">
           <NavList />
         </div>
         <div className="hidden gap-2 lg:flex">
+        <NavLink to="/cart">
           <Button variant="text" size="sm" color="blue-gray">
-            Log In
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-6 h-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
+              />
+            </svg>
           </Button>
+          </NavLink>
           <Button variant="gradient" size="sm">
-            Sign In
+            Github
           </Button>
         </div>
         <IconButton
@@ -99,3 +114,9 @@ export function Header() {
     </Navbar>
   );
 }
+
+
+
+<NavLink to="/contact">
+                            Contact
+                        </NavLink>
