@@ -4,6 +4,7 @@ import Home from './Pages/Home'
 import Cart from './Pages/Cart'
 import './index.css'
 import Layout from './Components/Layout';
+import MenuPage from "./Pages/MenuPage";
 
 
 
@@ -17,6 +18,7 @@ export default function App() {
           <Route index element={<Home />} />
           <Route path="cart" element={<Cart />} />
           <Route path="*" element={<h1>Error</h1>} />
+          <Route path="/restraunt/:resId" element={<MenuPage/>}/>
         </Route>
       </Routes>
     </BrowserRouter>
