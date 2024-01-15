@@ -98,12 +98,14 @@ function CardContainer() {
     </div>
     <div className='w-[100%] flex flex-wrap gap-16 justify-center py-10'>
       
-        {
+    {
             filteredData.map((index)=>(
             <FoodCard key = {index.info.id} resData = {index}/>
             )
             )
         }
+
+
     </div>
     </>
   )
