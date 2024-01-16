@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import Menu from "../Components/Menu";
 import { CDN_URL, MENU_URL } from "../Utils/constants";
 import { useParams } from "react-router-dom";
-import ShimmerMenu from "../Components/ShimmerMenu";
 
 function MenuHeader({ resInfo }) {
   const {
@@ -109,12 +108,6 @@ const MenuPage = () => {
   useEffect(() => {
     fetchData();
   }, []);
-
-  if(resMenu.length == 0){
-    return(
-      <ShimmerMenu/>
-    )
-  }
   return (
     <div className="w-[100%] justify-center flex">
       <div className="w-[70%] align-middle ">
