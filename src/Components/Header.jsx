@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from 'react'
 import {
   Navbar,
   Collapse,
@@ -9,21 +9,30 @@ import {
 import {NavLink} from "react-router-dom";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { LOGO_URL } from "../Utils/constants";
-// import { Logo } from "../../public/logo.svg";
+import { SearchContext } from '../Utils/SearchContext'
+
 
 function NavList() {
+  const {search,setSearch, setSearchClicked} = useContext(SearchContext)
+  // console.log(search);
   return (
     <List className="mt-4 mb-6 p-0 lg:mt-0 lg:mb-0 lg:flex-row lg:p-1">
       <div className="peer flex h-full w-full rounded-[7px] border border-blue-gray-200 border-t-transparent !border-t-blue-gray-300 bg-transparent px-3 py-2.5 pl-9 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder:text-blue-gray-300 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-blue-gray-300 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50">
         <input
           type="search"
           placeholder="Search"
+          value={search}
+
+          onChange={(e)=>setSearch(e.target.value)}
           className=" border-t-transparent !border-transparent bg-transparent font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder:text-blue-gray-300 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-transparent focus:border-2  focus:!border-transparent focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-transparent"
         />
 
         <button
-          class="select-none rounded-[50%] bg-gray-900 py-2 px-2 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-gray-900/10 transition-all hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+          className="select-none rounded-[50%] bg-gray-900 py-2 px-2 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-gray-900/10 transition-all hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
           type="button"
+          onClick={()=>{
+            setSearchClicked(true)
+          }}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

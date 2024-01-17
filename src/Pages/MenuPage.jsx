@@ -100,7 +100,7 @@ const MenuPage = () => {
     const menu =
       json.data.cards[2].groupedCard.cardGroupMap.REGULAR.cards[2].card.card
         .itemCards;
-    // console.log(res);
+    console.log(res);
     // console.log(menu);
     setResInfo(res);
     setResMenu(menu);
