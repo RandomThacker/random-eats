@@ -2,6 +2,7 @@ import React from "react";
 import { Button } from "@material-tailwind/react";
 import { MENU_IMAGE } from "../Utils/constants";
 import { useDispatch } from "react-redux";
+import { addItem } from "../Utils/cartSlice";
 
 function Menu({ resMenu }) {
   // console.log(resMenu);
@@ -11,9 +12,9 @@ function Menu({ resMenu }) {
 
   const dispatch = useDispatch()
 
-  const handleAddItem= ()=>{
+  const handleAddItem= (resMenu)=>{
     //dispatch an action
-    dispatch(addItem)
+    dispatch(addItem(resMenu))
   }
 
   return (
@@ -30,7 +31,7 @@ function Menu({ resMenu }) {
         </div>
         <div className="flex flex-col justify-center relative">
           <img src={MENU_IMAGE + imageId} className="h-28 w-28 rounded-md object-cover" />
-          <Button className="h-10 w-[100%] absolute bottom-1" onClick={handleAddItem}>ADD</Button>
+          <Button className="h-10 w-[100%] absolute bottom-1" onClick={()=>handleAddItem(resMenu)}>ADD</Button>
         </div>
       </div>
     </>

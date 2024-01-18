@@ -61,6 +61,7 @@ export function Header() {
 
   //subscribing to the store
   const cartItems = useSelector((store)=> store.cart.items)
+  console.log(cartItems);
 
   React.useEffect(() => {
     window.addEventListener(
@@ -70,7 +71,7 @@ export function Header() {
   }, []);
 
   return (
-    <Navbar className="mx-auto my-5 max-w-screen-xl px-4 py-2 ">
+    <Navbar className="mx-auto my-5 max-w-screen-xl px-4 py-2">
       <div className="flex items-center justify-between text-blue-gray-900">
       <NavLink to="/">
         <img src={LOGO_URL} className="h-[5em]" />
