@@ -12,7 +12,7 @@ function MenuHeader({ resInfo }) {
       sla,
     } = resInfo ?? {};
 
-    console.log(resInfo);
+    // console.log(resInfo);
   
     return (
       <div className="flex justify-between ">

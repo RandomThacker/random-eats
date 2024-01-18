@@ -21,11 +21,11 @@ const MenuPage1 = () => {
         setResInfo(restaurantInfo);
 
 
-        if (restaurantInfo) {
-          console.log(restaurantInfo);
-        } else {
-          console.log("Restaurant info is undefined.");
-        }
+        // if (restaurantInfo) {
+        //   console.log(restaurantInfo);
+        // } else {
+        //   console.log("Restaurant info is undefined.");
+        // }
   
         const categories = json?.data?.cards?.[json.data.cards.length - 1]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.filter(
           (c) =>
@@ -36,11 +36,11 @@ const MenuPage1 = () => {
   
         
       } catch (error) {
-        console.error("Error fetching data:", error);
+        // console.error("Error fetching data:", error);
       }
     };
 
-    console.log(resInfo);
+    // console.log(resInfo);
   
     useEffect(() => {
       fetchData();
@@ -55,7 +55,7 @@ const MenuPage1 = () => {
     return (
       <div className="w-[100%] justify-center flex">
         <div className="w-[70%] align-middle ">
-          <MenuHeader resInfo={resInfo} />
+          {/* <MenuHeader resInfo={resInfo} /> */}
           {data.map((item, i) => {
             i++;
             return (

@@ -4,20 +4,20 @@ import {
   CardBody,
   Typography,
 } from "@material-tailwind/react";
-import { CDN_URL } from "../Utils/constants";
+import { CDN_URL, MENU_IMAGE } from "../Utils/constants";
 import { Link } from "react-router-dom";
 
 export function FoodCard({ resData }) {
   const { cloudinaryImageId, name, avgRating, sla, cuisines, locality, id } =
     resData?.info;
-    // console.log(id);
+    // console.log(resData);
 
   return (
     <Card className="w-full max-w-[18rem] shadow-lg">
       <Link to={`/restraunt/${id}`}>
         <CardHeader floated={false} color="blue-gray">
           <img
-            src={CDN_URL + cloudinaryImageId}
+            src={MENU_IMAGE + cloudinaryImageId}
             alt="ui/ux review check"
             className="bg-red-100 h-48 object-cover w-full"
           />

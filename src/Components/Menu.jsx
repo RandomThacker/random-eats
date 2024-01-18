@@ -8,7 +8,8 @@ function Menu({ resMenu }) {
   // console.log(resMenu);
 
   // Check if resMenu and its nested properties exist before destructuring
-  const { name, price, description, imageId } = resMenu?.card?.info ?? {};
+  const { name, defaultPrice, description,price ,imageId } =
+    resMenu?.card?.info ?? {};
 
   const dispatch = useDispatch();
 
@@ -24,7 +25,9 @@ function Menu({ resMenu }) {
         <div className="flex py-5 flex-col w-[65%]">
           {/* Use the extracted variables with nullish coalescing operator to handle undefined values */}
           <h1 className="font-bold text-lg">{name ?? "Name Not Available"}</h1>
-          <p className="text-base">Rs {price / 100 ?? "Price Not Available"}</p>
+          <p className="text-base">
+            Rs {(defaultPrice || price)/ 100 ?? "Price Not Available"}
+          </p>
           <p className="text-gray-700 text-sm pt-3 ">
             {description ?? "Description Not Available"}
           </p>

@@ -3,11 +3,12 @@ import { FoodCard } from "./FoodCard";
 import { Button } from "@material-tailwind/react";
 import { ShimmerContainer } from "./ShimmerContainer";
 import { SearchContext } from "../Utils/SearchContext";
+import { CDN_URL } from "../Utils/constants";
 
 function CardContainer() {
   const { search, searchClicked, setSearchClicked } = useContext(SearchContext);
-  console.log(search);
-  console.log(searchClicked)
+  // console.log(search);
+  // console.log(searchClicked)
 
   const [data, setData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
@@ -39,15 +40,14 @@ function CardContainer() {
   };
 
   const fetchData = async () => {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=13.046593829792437&lng=77.6189301353937&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-    );
+    const data = await fetch(CDN_URL);
     const json = await data?.json();
     const updatedData =
       json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants;
     setFilteredData(updatedData);
     setData(updatedData);
+    console.log(json);
   };
 
   useEffect(() => {
@@ -122,7 +122,7 @@ function CardContainer() {
       </div>
       </div>
 
-      <h1 className="text-2xl font-bold px-24 pt-16 pb-12">
+      <h1 className="text-2xl font-bold px-24 pt-14 pb-12">
         Top restraunts around you
       </h1>
       <div className="flex w-[100%] px-24 gap-10">

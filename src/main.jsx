@@ -10,6 +10,8 @@ import { useState } from "react";
 import { SearchContext } from "./Utils/SearchContext";
 import { Provider } from "react-redux";
 import appStore from "./Utils/appStore";
+import Checkout from "./Pages/Checkout";
+import Error from "./Pages/Error";
 
 export default function App() {
   const [search, setSearch] = useState("");
@@ -25,7 +27,8 @@ export default function App() {
             <Route path="/" element={<Layout />}>
               <Route index element={<Home />} />
               <Route path="cart" element={<Cart />} />
-              <Route path="*" element={<h1>Error</h1>} />
+              <Route path="checkout" element={<Checkout/>} />
+              <Route path="*" element={<Error/>} />
               <Route path="/menu/:resId" element={<MenuPage />} />
               <Route path="/restraunt/:resId" element={<MenuPage1 />} />
             </Route>

@@ -61,7 +61,7 @@ export function Header() {
 
   //subscribing to the store
   const cartItems = useSelector((store)=> store.cart.items)
-  console.log(cartItems);
+  // console.log(cartItems);
 
   React.useEffect(() => {
     window.addEventListener(
