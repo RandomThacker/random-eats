@@ -23,7 +23,7 @@ function CardContainer() {
     setFilteredData(data);
   };
 
-  const handleTopSearch = () => {
+  const handleTopRated = () => {
     const filterData = data?.filter((res) => res?.info?.avgRating > 4.2);
     setFilteredData(filterData);
   };
@@ -129,7 +129,7 @@ function CardContainer() {
         <Button variant="filled" onClick={handleAll}>
           All
         </Button>
-        <Button variant="filled" onClick={handleTopSearch}>
+        <Button variant="filled" onClick={handleTopRated}>
           Top Rated
         </Button>
         <Button variant="filled" onClick={handleDelivery}>
