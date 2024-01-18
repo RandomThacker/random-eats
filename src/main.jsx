@@ -8,6 +8,7 @@ import MenuPage from "./Pages/MenuPage";
 import MenuPage1 from "./Pages/MenuPage1";
 import { useState } from "react";
 import { SearchContext } from "./Utils/SearchContext";
+import { Provider } from "react-redux";
 
 export default function App() {
   const [search, setSearch] = useState("");
