@@ -4,7 +4,7 @@ import { MENU_IMAGE } from "../Utils/constants";
 import { useDispatch } from "react-redux";
 import { addItem } from "../Utils/cartSlice";
 
-function Menu({ resMenu }) {
+function CartMenu({ resMenu }) {
   // console.log(resMenu);
 
   // Check if resMenu and its nested properties exist before destructuring
@@ -21,29 +21,29 @@ function Menu({ resMenu }) {
     <>
       <div className="w-[100%] bg-gray-300 h-[1.5px] block mx-auto"></div>
       <div className="flex justify-between align-middle">
-        <div className="flex py-5 flex-col w-[65%]">
-          {/* Use the extracted variables with nullish coalescing operator to handle undefined values */}
+        <div className="flex py-5 flex-col w-[65%] justify-around">
           <h1 className="font-bold text-lg">{name ?? "Name Not Available"}</h1>
           <p className="text-base">Rs {price / 100 ?? "Price Not Available"}</p>
-          <p className="text-gray-700 text-sm pt-3 ">
-            {description ?? "Description Not Available"}
-          </p>
+          <Button
+            className="w-28 hover:bg-red-600 bg-transparent shadow-none mt-4 hover:text-white border-red-600 border-2 text-red-600"
+            onClick={() => handleAddItem(resMenu)}
+          >
+            Remove
+          </Button>
+          
         </div>
         <div className="flex flex-col py-3 justify-center relative">
           <img
             src={MENU_IMAGE + imageId}
-            className="h-20 w-20 rounded-md object-cover"
+            className="h-32 w-32 rounded-md object-cover"
           />
-          <Button
-            className="h-10 w-[100%] bottom-1 hover:bg-blue-900"
-            onClick={() => handleAddItem(resMenu)}
-          >
-            ADD
-          </Button>
         </div>
+      </div>
+      <div>
+        <h1>Toatl</h1>
       </div>
     </>
   );
 }
 
-export default Menu;
+export default CartMenu;

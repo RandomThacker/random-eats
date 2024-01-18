@@ -11,6 +11,8 @@ function MenuHeader({ resInfo }) {
       cuisines,
       sla,
     } = resInfo ?? {};
+
+    console.log(resInfo);
   
     return (
       <div className="flex justify-between ">

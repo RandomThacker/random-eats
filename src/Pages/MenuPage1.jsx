@@ -39,6 +39,8 @@ const MenuPage1 = () => {
         console.error("Error fetching data:", error);
       }
     };
+
+    console.log(resInfo);
   
     useEffect(() => {
       fetchData();

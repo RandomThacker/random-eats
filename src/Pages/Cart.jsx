@@ -1,7 +1,7 @@
 import React from "react";
 import ShimmerMenu from "../Components/ShimmerMenu";
 import { useDispatch, useSelector } from "react-redux";
-import Menu from "../Components/Menu";
+import CartMenu from "../Components/CartMenu";
 import { Button } from "@material-tailwind/react";
 import { clearCart } from "../Utils/cartSlice";
 
@@ -28,7 +28,7 @@ const Cart = () => {
         </Button>
         <div className="w-6/12 m-auto">
           {cartItems.map((item) => (
-            <Menu resMenu={item} />
+            <CartMenu resMenu={item} />
           ))}
         </div>
       </div>
