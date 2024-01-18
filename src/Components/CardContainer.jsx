@@ -6,20 +6,13 @@ import { SearchContext } from "../Utils/SearchContext";
 
 function CardContainer() {
   const { search, searchClicked, setSearchClicked } = useContext(SearchContext);
-  // console.log(search);
-  // console.log(searchClicked)
+  console.log(search);
+  console.log(searchClicked)
 
   const [data, setData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
 
   const searchButton = () => {
-    const filterData = data?.info?.cuisines?.filter((e) =>
-      e.toLowerCase().includes("pizza")
-    );
-    setFilteredData(filterData);
-  };
-
-  const pizza = () => {
     const filterData = data.filter((e) =>
       e.info.name.toLowerCase().includes(search.toLowerCase())
     );
@@ -66,14 +59,14 @@ function CardContainer() {
     fetchData();
   }, []);
 
-  console.log(data);
+  // console.log(data);
   const filterData = data[0]?.info?.cuisines.join(", ");
   // const newD=data[0]?.info?.cuisines?.filter((e)=>e.includes("burger"))
   const newD=data.flatMap((restaurant) => restaurant?.info?.cuisines)
 
   // const newD = filterData.toString()
-  console.log(filterData);
-  console.log(newD);
+  // console.log(filterData);
+  // console.log(newD);
 
   //Conditional Rendering
   if (data?.length === 0) {

@@ -1,12 +1,20 @@
 import React from "react";
 import { Button } from "@material-tailwind/react";
 import { MENU_IMAGE } from "../Utils/constants";
+import { useDispatch } from "react-redux";
 
 function Menu({ resMenu }) {
   // console.log(resMenu);
 
   // Check if resMenu and its nested properties exist before destructuring
   const { name, price, description, imageId } = resMenu?.card?.info ?? {};
+
+  const dispatch = useDispatch()
+
+  const handleAddItem= ()=>{
+    //dispatch an action
+    dispatch(addItem)
+  }
 
   return (
     <>
@@ -22,7 +30,7 @@ function Menu({ resMenu }) {
         </div>
         <div className="flex flex-col justify-center relative">
           <img src={MENU_IMAGE + imageId} className="h-28 w-28 rounded-md object-cover" />
-          <Button className="h-10 w-[100%] absolute bottom-1">ADD</Button>
+          <Button className="h-10 w-[100%] absolute bottom-1" onClick={handleAddItem}>ADD</Button>
         </div>
       </div>
     </>
