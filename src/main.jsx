@@ -10,7 +10,7 @@ import { useState } from "react";
 import { SearchContext } from "./Utils/SearchContext";
 
 export default function App() {
-  const [search, setSearch] = useState("hello");
+  const [search, setSearch] = useState("");
   const [searchClicked, setSearchClicked] = useState(false)
 
   return (
