@@ -2,10 +2,9 @@ import React from "react";
 import { Button } from "@material-tailwind/react";
 import { MENU_IMAGE } from "../Utils/constants";
 import { useDispatch } from "react-redux";
-import { addItem, removeItem } from "../Utils/cartSlice";
+import { removeItem } from "../Utils/cartSlice";
 
 function CartMenu({ resMenu }) {
-  // console.log(resMenu);
 
   // Check if resMenu and its nested properties exist before destructuring
   const { name, defaultPrice, description, imageId, price } = resMenu?.card?.info ?? {};
