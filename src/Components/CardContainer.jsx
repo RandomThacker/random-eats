@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState, useContext, useRef } from "react";
 import { FoodCard } from "./FoodCard";
 import { Button } from "@material-tailwind/react";
 import { ShimmerContainer } from "./ShimmerContainer";
@@ -7,6 +7,8 @@ import { CDN_URL } from "../Utils/constants";
 
 function CardContainer() {
   const { search, searchClicked, setSearchClicked } = useContext(SearchContext);
+  const foodSectionRef = useRef(null);
+
   // console.log(search);
   // console.log(searchClicked)
 
@@ -39,6 +41,41 @@ function CardContainer() {
     setFilteredData(filterData);
   };
 
+  const handlePizza = () => {
+    const filterData = data?.filter((res) =>
+      res?.info?.cuisines?.join()?.includes("Pizza")
+    );
+    setFilteredData(filterData);
+  };
+
+  const handleDesserts = () => {
+    const filterData = data?.filter((res) =>
+      res?.info?.cuisines?.join()?.includes("Desserts")
+    );
+    setFilteredData(filterData);
+  };
+
+  const handleNorthIndian = () => {
+    const filterData = data?.filter((res) =>
+      res?.info?.cuisines?.join()?.includes("North Indian")
+    );
+    setFilteredData(filterData);
+  };
+
+  const handleChinese = () => {
+    const filterData = data?.filter((res) =>
+      res?.info?.cuisines?.join()?.includes("Chinese")
+    );
+    setFilteredData(filterData);
+  };
+
+  const handlePasta = () => {
+    const filterData = data?.filter((res) =>
+      res?.info?.cuisines?.join()?.includes("Pasta")
+    );
+    setFilteredData(filterData);
+  };
+
   const fetchData = async () => {
     const data = await fetch(CDN_URL);
     const json = await data?.json();
@@ -47,26 +84,28 @@ function CardContainer() {
         ?.restaurants;
     setFilteredData(updatedData);
     setData(updatedData);
-    console.log(json);
+    // console.log(json);
   };
 
   useEffect(() => {
-    searchButton();
-    setSearchClicked(false);
+    if (searchClicked) {
+      setSearchClicked(false);
+      console.log(searchClicked);
+      searchButton();
+
+      // Scroll to the food section using useRef
+      if (foodSectionRef.current) {
+        foodSectionRef.current.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+    }
   }, [searchClicked]);
 
   useEffect(() => {
     fetchData();
   }, []);
-
-  // console.log(data);
-  const filterData = data[0]?.info?.cuisines.join(", ");
-  // const newD=data[0]?.info?.cuisines?.filter((e)=>e.includes("burger"))
-  const newD=data.flatMap((restaurant) => restaurant?.info?.cuisines)
-
-  // const newD = filterData.toString()
-  // console.log(filterData);
-  // console.log(newD);
 
   //Conditional Rendering
   if (data?.length === 0) {
@@ -75,58 +114,79 @@ function CardContainer() {
 
   return (
     <>
-      <div className="flex w-[100%] px-24 gap-10 flex-col py-10">
-        <h1 className="text-2xl font-bold py-2">
-          What do you want to eat?
-        </h1>
-        <div className="flex gap-10">
-        <div className="flex flex-col align-middle justify-center">
-          <img
-            src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/v1675667625/PC_Creative%20refresh/North_Indian_4.png"
-            className=" rounded-full h-40 w-40 object-cover bg-white object-top pb-4"
-          />
-          <h1 className="text-center font-semibold text-brown-600">North Indian</h1>
-        </div>
+      <div className="flex flex-col gap-10 py-10 sm:px-24 px-6 whitespace-nowrap overflow-x-auto scrollbar-hide">
+        <h1 className="text-2xl font-bold text-center sm:text-left py-2">What do you want to eat?</h1>
+        <div className="flex gap-10 flex-row  whitespace-nowrap overflow-x-auto scrollbar-hide">
+          <div
+            className="flex flex-col align-middle justify-center hover:cursor-pointer"
+            onClick={handleNorthIndian}
+          >
+            <img
+              src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/v1675667625/PC_Creative%20refresh/North_Indian_4.png"
+              className=" rounded-full h-40 w-40 object-cover bg-white object-top pb-4"
+            />
+            <h1 className="text-center font-semibold w-40 text-brown-600">
+              North Indian
+            </h1>
+          </div>
+          {/* Add more cards as needed */}
+          <div
+            className="flex flex-col align-middle justify-center hover:cursor-pointer"
+            onClick={handleDesserts}
+          >
+            <img
+              src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/v1674029845/PC_Creative%20refresh/3D_bau/banners_new/Cakes.png"
+              className=" rounded-full h-40 w-40 object-cover bg-white object-top pb-4"
+            />
+            <h1 className="text-center font-semibold text-brown-600 w-40">Cakes</h1>
+          </div>
 
-        <div className="flex flex-col align-middle justify-center">
-          <img
-            src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/v1674029845/PC_Creative%20refresh/3D_bau/banners_new/Cakes.png"
-            className=" rounded-full h-40 w-40 object-cover bg-white object-top pb-4"
-          />
-          <h1 className="text-center font-semibold text-brown-600">Cakes</h1>
-        </div>
+          <div
+            className="flex flex-col align-middle justify-center hover:cursor-pointer"
+            onClick={handlePizza}
+          >
+            <img
+              src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/v1674029856/PC_Creative%20refresh/3D_bau/banners_new/Pizza.png"
+              className=" rounded-full h-40 w-40 object-cover bg-white object-top pb-4"
+            />
+            <h1 className="text-center font-semibold text-brown-600 w-40">Pizza</h1>
+          </div>
 
-        <div className="flex flex-col align-middle justify-center">
-          <img
-            src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/v1674029856/PC_Creative%20refresh/3D_bau/banners_new/Pizza.png"
-            className=" rounded-full h-40 w-40 object-cover bg-white object-top pb-4"
-          />
-          <h1 className="text-center font-semibold text-brown-600">Pizza</h1>
-        </div>
+          <div
+            className="flex flex-col align-middle justify-center hover:cursor-pointer"
+            onClick={handlePasta}
+          >
+            <img
+              src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/v1674029854/PC_Creative%20refresh/3D_bau/banners_new/Pasta.png"
+              className=" rounded-full h-40 w-40 object-cover bg-white object-top pb-4"
+            />
+            <h1 className="text-center font-semibold text-brown-600 w-40">Pasta</h1>
+          </div>
 
-        <div className="flex flex-col align-middle justify-center">
-          <img
-            src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/v1674029850/PC_Creative%20refresh/3D_bau/banners_new/Dosa.png"
-            className=" rounded-full h-40 w-40 object-cover bg-white object-top pb-4"
-          />
-          <h1 className="text-center font-semibold text-brown-600">Dosa</h1>
-        </div>
-
-        <div className="flex flex-col align-middle justify-center">
-          <img
-            src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/v1674029848/PC_Creative%20refresh/3D_bau/banners_new/Chinese.png"
-            className=" rounded-full h-40 w-40 object-cover bg-white object-top pb-4"
-          />
-          <h1 className="text-center font-semibold text-brown-600">Chineese</h1>
+          <div
+            className="flex flex-col align-middle justify-center hover:cursor-pointer"
+            onClick={handleChinese}
+          >
+            <img
+              src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/v1674029848/PC_Creative%20refresh/3D_bau/banners_new/Chinese.png"
+              className=" rounded-full h-40 w-40 object-cover bg-white object-top pb-4"
+            />
+            <h1 className="text-center font-semibold text-brown-600 w-40">
+              Chineese
+            </h1>
+          </div>
         </div>
       </div>
-      </div>
 
-      <h1 className="text-2xl font-bold px-24 pt-14 pb-12">
+      <h1
+        className="text-2xl font-bold px-2 text-center sm:text-left pt-14 pb-12 sm:px-24"
+        ref={foodSectionRef}
+        id="food"
+      >
         Top restraunts around you
       </h1>
-      <div className="flex w-[100%] px-24 gap-10">
-        <Button variant="filled" onClick={handleAll}>
+      <div className="flex w-[100%]  gap-10 whitespace-nowrap overflow-x-auto scrollbar-hide sm:px-24 px-2 ">
+        <Button variant="filled" onClick={handleAll} className="ml-12 sm:ml-0">
           All
         </Button>
         <Button variant="filled" onClick={handleTopRated}>
@@ -139,11 +199,17 @@ function CardContainer() {
           Pure Veg
         </Button>
       </div>
-      <div className="w-[100%] flex flex-wrap gap-16 justify-center py-10">
-        {filteredData.map((index) => (
-          <FoodCard key={index?.info?.id} resData={index} />
-        ))}
-      </div>
+      {filteredData.length > 0 ? (
+        <div className="w-[100%] flex flex-wrap gap-16 justify-center py-10">
+          {filteredData.map((index) => (
+            <FoodCard key={index?.info?.id} resData={index} />
+          ))}
+        </div>
+      ) : (
+        <p className=" text-3xl w-[100%] py-36 font-bold text-center">
+          No Restaurants Found
+        </p>
+      )}
     </>
   );
 }

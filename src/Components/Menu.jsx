@@ -38,7 +38,7 @@ function Menu({ resMenu }) {
             className="h-20 w-20 rounded-md object-cover"
           />
           <Button
-            className="h-10 w-[100%] bottom-1 hover:bg-blue-900"
+            className="h-10 w-[100%] bottom-1 hover:bg-green-600"
             onClick={() => handleAddItem(resMenu)}
           >
             ADD
