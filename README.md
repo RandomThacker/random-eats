@@ -1,8 +1,6 @@
 # Random Eats
 
-This is a fascinating project – a clone of the Swiggy website using the power duo of React.js and Tailwind CSS, with thorough testing using Jest, and real-time data from the Swiggy live API. 🍔🛵
-
-![image](https://github.com/RandomThacker/random-eats/assets/141705990/ff7f6363-c97e-4897-86ab-b08e42b42e3b)
+Random Eats – a clone of the Swiggy website using the power duo of React.js and Tailwind CSS, with thorough testing using Jest, and real-time data from the Swiggy live API. 🍔🛵
 
 
 ## 🔗 Live link
@@ -36,12 +34,12 @@ To set up the Food Ordering App project locally, follow these steps:
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/mikasa-404/food-ordering-app
+    [https://github.com/RandomThacker/random-eats.git](https://github.com/RandomThacker/random-eats.git)
     ```
 
 2. Navigate to the project directory:
     ```bash
-    cd food-ordering-app
+    cd random-eats
     ```
 
 3. Install the required dependencies:
@@ -51,5 +49,5 @@ To set up the Food Ordering App project locally, follow these steps:
 
 4. Start the application:
     ```bash
-    npm start
+    npm run dev
     ```
