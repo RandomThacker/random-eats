@@ -8,10 +8,6 @@ import { CDN_URL } from "../Utils/constants";
 function CardContainer() {
   const { search, searchClicked, setSearchClicked } = useContext(SearchContext);
   const foodSectionRef = useRef(null);
-
-  // console.log(search);
-  // console.log(searchClicked)
-
   const [data, setData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
 
@@ -84,16 +80,13 @@ function CardContainer() {
         ?.restaurants;
     setFilteredData(updatedData);
     setData(updatedData);
-    // console.log(json);
   };
 
   useEffect(() => {
     if (searchClicked) {
       setSearchClicked(false);
-      console.log(searchClicked);
       searchButton();
 
-      // Scroll to the food section using useRef
       if (foodSectionRef.current) {
         foodSectionRef.current.scrollIntoView({
           behavior: "smooth",

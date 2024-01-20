@@ -18,9 +18,7 @@ import { useSelector } from 'react-redux';
 
 function NavList() {
   const {search,setSearch, setSearchClicked} = useContext(SearchContext)
-  // const history = useHistory();
   const navigate = useNavigate();
-  // console.log(search);
   return (
     <List className="mt-4 mb-6 p-0 lg:mt-0 lg:mb-0 lg:flex-row lg:p-1 ">
       <div className="peer flex h-full w-full justify-between rounded-[7px] border border-blue-gray-200 border-t-transparent !border-t-blue-gray-300 bg-transparent px-3 py-2.5 pl-9 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder:text-blue-gray-300 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-blue-gray-300 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50">
@@ -70,7 +68,6 @@ export function Header() {
 
   //subscribing to the store
   const cartItems = useSelector((store)=> store.cart.items)
-  // console.log(cartItems);
 
   React.useEffect(() => {
     window.addEventListener(
