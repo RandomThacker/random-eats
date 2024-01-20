@@ -5,7 +5,6 @@ import { useDispatch } from "react-redux";
 import { addItem } from "../Utils/cartSlice";
 
 function Menu({ resMenu }) {
-  // console.log(resMenu);
 
   // Check if resMenu and its nested properties exist before destructuring
   const { name, defaultPrice, description,price ,imageId } =
