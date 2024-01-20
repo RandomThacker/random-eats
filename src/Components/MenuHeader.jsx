@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { CDN_URL, MENU_URL } from "../Utils/constants";
+import React from "react";
+import { CDN_URL} from "../Utils/constants";
 
 function MenuHeader({ resInfo }) {
     const {
@@ -12,7 +12,6 @@ function MenuHeader({ resInfo }) {
       sla,
     } = resInfo ?? {};
 
-    // console.log(resInfo);
   
     return (
       <div className="flex justify-between ">
