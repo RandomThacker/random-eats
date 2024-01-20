@@ -10,7 +10,6 @@ import { Link } from "react-router-dom";
 export function FoodCard({ resData }) {
   const { cloudinaryImageId, name, avgRating, sla, cuisines, locality, id } =
     resData?.info;
-    // console.log(resData);
 
   return (
     <Card className="w-full max-w-[18rem] shadow-lg">
