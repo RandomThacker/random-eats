@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { CDN_URL, MENU_URL } from "../Utils/constants";
+import {MENU_URL } from "../Utils/constants";
 import { useParams } from "react-router-dom";
 import { AccordionCustomIcon } from "../Components/Accordian";
 import MenuHeader from "../Components/MenuHeader";
 import ShimmerMenu from "../Components/ShimmerMenu";
-
-
-// ... (other imports)
 
 const MenuPage1 = () => {
     const [data, setData] = useState([]);
@@ -40,7 +37,6 @@ const MenuPage1 = () => {
       }
     };
 
-    // console.log(resInfo);
   
     useEffect(() => {
       fetchData();
