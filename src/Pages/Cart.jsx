@@ -1,5 +1,4 @@
 import React from "react";
-import ShimmerMenu from "../Components/ShimmerMenu";
 import { useDispatch, useSelector } from "react-redux";
 import CartMenu from "../Components/CartMenu";
 import { Button } from "@material-tailwind/react";
