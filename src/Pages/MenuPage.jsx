@@ -90,18 +90,15 @@ const MenuPage = () => {
   const [resInfo, setResInfo] = useState([]);
   const [resMenu, setResMenu] = useState([]);
   const { resId } = useParams();
-//   console.log(resId);
   const fetchData = async () => {
     const data = await fetch(MENU_URL + resId);
 
     const json = await data.json();
-    console.log(json);
     const res = json.data.cards[0].card.card.info;
     const menu =
       json.data.cards[2].groupedCard.cardGroupMap.REGULAR.cards[2].card.card
         .itemCards;
-    console.log(res);
-    // console.log(menu);
+   
     setResInfo(res);
     setResMenu(menu);
   };
