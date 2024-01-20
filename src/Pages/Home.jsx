@@ -3,9 +3,6 @@ import CardContainer from '../Components/CardContainer'
 import { CarouselCustomNavigation } from '../Components/HeroCarousal'
 
 function Home() {
-
-  
-
   return (
     <div>
       <CarouselCustomNavigation/>
