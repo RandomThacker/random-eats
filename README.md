@@ -7,7 +7,7 @@ This is a fascinating project – a clone of the Swiggy website using the power 
 
 ## 🔗 Live link
 
-**[https://foodyville.netlify.app/](https://randomeats.vercel.app/)**
+**[https://randomeats.vercel.app/](https://randomeats.vercel.app/)**
 
 
 ## 📓Features 
