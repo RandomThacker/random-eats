@@ -7,7 +7,6 @@ const Error = () => {
       src="https://i.ibb.co/1KnkFYQ/Group-20-2.png"
       className="w-[100%] sm:h-[85%] h-[50%]"
     />
-    {/* <h1 className='text-3xl'>oops you landed on an unknown page</h1> */}
   </div>
   )
 }
