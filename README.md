@@ -1,6 +1,6 @@
 # Random Eats
 
-Random Eats – a clone of the Swiggy website using the power duo of React.js and Tailwind CSS, with thorough testing using Jest, and real-time data from the Swiggy live API. 🍔🛵
+Welcome to 'Random Eats,' a React-fueled delight that turns food ordering into a thrilling adventure! With Swiggy's real-time API, our platform adds a pinch of randomness to every meal – because why settle for ordinary when you can savor the unexpected?  🍔🛵
 
 
 ## 🔗 Live link
@@ -51,3 +51,20 @@ To set up the Food Ordering App project locally, follow these steps:
     ```bash
     npm run dev
     ```
+
+    ## Images
+
+   ![image](https://github.com/RandomThacker/random-eats/assets/141705990/c6cdbc24-f4f1-4c3d-bf52-8bac64583227)
+   
+   ![image](https://github.com/RandomThacker/random-eats/assets/141705990/73c6a271-3d13-43c6-a276-f3af1596efe6)
+   
+   ![image](https://github.com/RandomThacker/random-eats/assets/141705990/1e5aef32-8d7c-47ed-a908-0a03c71b406d)
+   
+   ![image](https://github.com/RandomThacker/random-eats/assets/141705990/b030f578-2691-45a2-a6fb-aa15e68d1815)
+   
+   ![image](https://github.com/RandomThacker/random-eats/assets/141705990/5438cd88-069d-453e-bd0e-3141d4f37aad)
+
+
+
+
+
